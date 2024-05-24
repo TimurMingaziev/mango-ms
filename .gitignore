@@ -38,3 +38,9 @@ _UpgradeReport_Files/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+**/wwwroot/lib/
+# When wwwroot/lib/ is commented out, exclude .min and .map files
+*.min.css
+*.min.js
+*.map
