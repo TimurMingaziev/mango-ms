@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mango.Services.CouponAPI.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/coupon")]
 [ApiController]
 public class CouponAPIController
 {
@@ -143,11 +143,11 @@ public class CouponAPIController
     }
 
     [HttpDelete]
-    public ResponseDto Put(int id)
+    public ResponseDto Delete(int id)
     {
         try
         {
-            Coupon coupon = _dbContext.Coupons.Find(id);
+            var coupon = _dbContext.Coupons.Find(id);
             if (coupon != null)
             {
                 _dbContext.Coupons.Remove(coupon);
