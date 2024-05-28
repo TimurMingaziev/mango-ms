@@ -26,4 +26,9 @@ public class CouponController : Controller
         }
         return View(coupons);
     }
+
+    public async Task<IActionResult> CouponCreate()
+    {
+        return View();
+    }
 }
