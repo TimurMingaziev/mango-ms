@@ -75,7 +75,7 @@ public class CouponService : ICouponService
         var result = await _baseService.SendAsync(new RequestDto
         {
             ApiType = ApiType.Delete,
-            Url = ServicesUrls.CouponAPI + $"/api/coupon/{id}",
+            Url = ServicesUrls.CouponAPI + $"/api/coupon?id={id}",
         });
 
         return result;

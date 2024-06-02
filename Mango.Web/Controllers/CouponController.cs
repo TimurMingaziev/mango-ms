@@ -31,4 +31,29 @@ public class CouponController : Controller
     {
         return View();
     }
+
+    [HttpPost]
+    public async Task<IActionResult> CouponCreate(CouponDto model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        var response = await _couponService.CreateCouponAsync(model);
+
+        if (response != null && response.Success)
+        {
+            return RedirectToAction(nameof(CouponIndex));
+        }
+
+        return View(model);
+    }
+
+    public async Task<IActionResult> CouponDelete(int couponId)
+    {
+        var response = await _couponService.DeleteCouponAsync(couponId);
+
+        return RedirectToAction(nameof(CouponIndex));
+    }
 }
