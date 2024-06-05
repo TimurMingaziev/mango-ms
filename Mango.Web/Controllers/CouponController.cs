@@ -24,6 +24,10 @@ public class CouponController : Controller
         {
             coupons = JsonConvert.DeserializeObject<List<CouponDto>>(response.Result.ToString());
         }
+        else
+        {
+            TempData["error"] = response?.Message;
+        }
         return View(coupons);
     }
 
@@ -46,6 +50,8 @@ public class CouponController : Controller
         {
             return RedirectToAction(nameof(CouponIndex));
         }
+
+        TempData["error"] = response?.Message;
 
         return View(model);
     }
